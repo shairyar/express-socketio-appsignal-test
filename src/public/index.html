@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>AppSignal express+socket.io test</title>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <p>Socket status: <span id="socket_status">Connecting...</span></p>
+
+  <script>
+    const socket = io();
+    socket.on("connect", () => {
+      document.getElementById("socket_status").innerText = "Connected!";
+    });
+    socket.on("disconnect", () => {
+      document.getElementById("socket_status").innerText = "Connecting...";
+    });
+  </script>
+</body>
